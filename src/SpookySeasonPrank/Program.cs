@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 
 IConfiguration config = new ConfigurationBuilder()
-    .AddUserSecrets(Assembly.GetExecutingAssembly(), optional: true, reloadOnChange: false)
+    .AddUserSecrets<Program>(optional: true, reloadOnChange: false)
     .Build();
 
 var twilioAccountSid = config["Twilio:AccountSid"];
